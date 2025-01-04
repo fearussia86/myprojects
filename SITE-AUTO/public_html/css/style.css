@@ -98,6 +98,72 @@ a {
 
 }
 
+.scrollPage {
+    position: fixed;
+    right: 50px;
+    bottom: 200px;
+    z-index: 300;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    visibility: hidden;
+    /* opacity: 0.7; */
+    transition: .1s;
+    transform: translateY(10px);
+    
+
+}
+
+.scrollPage::before {
+    content: "↑";
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    height: 100%;
+    width: 100%;
+}
+
+.scrollPage--active {
+    visibility: visible;
+    opacity: 0.5;
+}
+
+.scrollPage--active:hover {
+    visibility: visible;
+    opacity: 0.7;
+}
+
+.scrollPage__svg {
+    border: 2px solid #002966;
+    border-radius: 50%;
+   
+}
+
+.scrollPage__svg:hover {
+    color: #f4a900;
+    /* opacity: 0.7; */
+
+}
+
+
+.scrollPage__path {
+    box-sizing: border-box;
+    stroke: orange;
+    stroke-width: 6px;
+    transition: 0.5s;
+}
+
+
+
+
 /* Идут стили Футера */
 
 .footer {

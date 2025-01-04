@@ -1,4 +1,4 @@
-const mobileMenuBtn = document.querySelector(".mobileMenu");
+const mobileMenuBtn = document.querySelector(".menu__btn");
 const mainMenu = document.querySelector(".menu__list2");
 
 console.log(mobileMenuBtn);
@@ -75,3 +75,62 @@ chooseTabsBtn.forEach(function(elem) {
 
 });
 
+
+
+
+// JS код работы скролл кнопки, поднятия наверх страницы
+
+const offset = 300;
+
+const scrollPage = document.querySelector(".scrollPage");
+const scrollPage__path = document.querySelector(".scrollPage__path");
+const pathLength = scrollPage__path.getTotalLength();
+
+// scrollPage__path.style.strokeDashArray = `{$pathLength} {$pathLength}`;
+scrollPage__path.style.transition = "stroke-dashoffset 5ms";
+
+console.log(scrollPage);
+console.log(scrollPage__path);
+console.log(pathLength);
+
+
+
+let countCoordinates = () =>  window.scrollY || document.documentElement.scrollTop;
+console.log(countCoordinates);
+console.log(window.scrollY);
+
+//Далее мы напишем три метода для того, чтобы работала кнопочка наверх, к началу страницы
+
+
+//updateDashOffset - первый метод - следит и вычисляет обновленный отступ от начала страницы
+const updateDashOffset = () => {};
+
+//onScroll - второй метод будет по клику скролить и возвращать пользователя к началу страницы
+
+window.addEventListener(
+    'scroll', () => {
+        updateDashOffset();
+        if(countCoordinates() > offset) {
+            scrollPage.classList.add('scrollPage--active');
+
+        } else {
+            scrollPage.classList.remove('scrollPage--active');
+        }
+
+    }
+);
+
+
+//click - третья функция по клику будет как раз активировать данный скролл наверх
+
+
+scrollPage.addEventListener(
+    'click', ()=>{
+        window.scrollTo(
+            {
+                top: 0,
+                behavior: 'smooth'
+            }
+        );
+    }
+);
